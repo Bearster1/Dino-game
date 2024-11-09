@@ -1,0 +1,36 @@
+import random as rand
+import os
+import time
+def game():
+    score=0
+    life=1
+    character="R"
+    cactus="|"
+    bird="-"
+    print("Welcome to the dinosaur game.")
+    time.sleep(3)
+    while life!=0:
+        os.system('cls')
+        space=rand.randint(0,1)
+        if space==0:
+            print(character,cactus)
+            move=input("What would you like to do: Duck or Jump [D/J]: ")
+            if move.upper()=="J":
+                score+=1
+            elif move.upper()=="D":
+                print("GAME OVER")
+                life=0
+            else:
+                print("Do a proper action")
+        elif space==1:
+            print(character,bird)
+            move=input("What would you like to do: Duck or Jump [D/J]: ")
+            if move.upper()=="D":
+                score+=1
+            elif move.upper()=="J":
+                print("GAME OVER")
+                life=0
+            else:
+                print("Do a proper action")
+    print("Your final score is: "+str(score))
+game()
